@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -76,11 +77,13 @@ namespace FastLink
 
         private void uiButton3_Click(object sender, EventArgs e)
         {
-            var dlg = new FolderPicker();
-            dlg.InputPath = textBox1.Text;
-            if (dlg.ShowDialog(IntPtr.Zero) == true)
+            FolderBrowser fb = new FolderBrowser();
+            fb.Description = "请选择源路径";
+            fb.IncludeFiles = true;
+            fb.InitialDirectory = textBox1.Text;
+            if (fb.ShowDialog() == DialogResult.OK)
             {
-                textBox1.Text= dlg.ResultPath;
+                textBox1.Text = fb.SelectedPath;
             }
         }
 
@@ -99,12 +102,13 @@ namespace FastLink
         
         private void uiButton4_Click(object sender, EventArgs e)
         {
-            FolderBrowserDialog dilog = new FolderBrowserDialog();
-            dilog.SelectedPath = textBox2.Text;
-            dilog.Description = "请选择链接位置";
-            if (dilog.ShowDialog() == DialogResult.OK)
+            FolderBrowser fb = new FolderBrowser();
+            fb.Description = "选择链接路径";
+            //fb.IncludeFiles = true;
+            fb.InitialDirectory = textBox2.Text;
+            if (fb.ShowDialog() == DialogResult.OK)
             {
-                textBox2.Text = dilog.SelectedPath;
+                textBox2.Text = fb.SelectedPath;
             }
         }
         [DllImport("user32.dll", EntryPoint = "HideCaret")]
@@ -112,6 +116,80 @@ namespace FastLink
         private void HideCaret(object sender, MouseEventArgs e)
         {
             HideCaret(((TextBox)sender).Handle);
+        }
+
+        public static string Exec(string str)
+        {
+            string output = "";
+            try
+            {
+                Process p = new Process();
+                p.StartInfo.FileName = "cmd.exe";
+                p.StartInfo.UseShellExecute = false;
+                p.StartInfo.RedirectStandardInput = true;
+                p.StartInfo.RedirectStandardOutput = true;
+                p.StartInfo.RedirectStandardError = true;
+                p.StartInfo.CreateNoWindow = true;
+                p.Start();
+                p.StandardInput.WriteLine(str + "&exit");
+                p.StandardInput.AutoFlush = true;
+                output = p.StandardOutput.ReadToEnd();
+                p.WaitForExit();
+            }
+            catch
+            {
+                Console.WriteLine("shell权限错误");
+            }
+            return output;
+        }
+        private void uiButton5_Click(object sender, EventArgs e)
+        {
+            if (textBox1.Text != "" && textBox2.Text != "" )
+            {
+                if (uiRadioButton1.Checked)
+                {
+                    string cmd = "mklink /D \"" + textBox2.Text + "\" \"" + textBox1.Text + "\"";
+                    string output = Exec(cmd);
+                    if (output.Contains("已存在"))
+                    {
+                        MessageBox.Show("已存在同名链接");
+                    }
+                    else
+                    {
+                        MessageBox.Show("创建成功");
+                    }
+                }
+                else if (uiRadioButton2.Checked)
+                {
+                    string cmd = "mklink /J \"" + textBox2.Text + "\" \"" + textBox1.Text + "\"";
+                    string output = Exec(cmd);
+                    if (output.Contains("已存在"))
+                    {
+                        MessageBox.Show("已存在同名链接");
+                    }
+                    else
+                    {
+                        MessageBox.Show("创建成功");
+                    }
+                }
+                else if (uiRadioButton3.Checked)
+                {
+                    string cmd = "mklink /H \"" + textBox2.Text + "\" \"" + textBox1.Text + "\"";
+                    string output = Exec(cmd);
+                    if (output.Contains("已存在"))
+                    {
+                        MessageBox.Show("已存在同名链接");
+                    }
+                    else
+                    {
+                        MessageBox.Show("创建成功");
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("请填写完整信息");
+            }
         }
     }
 }

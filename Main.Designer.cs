@@ -103,6 +103,7 @@
             this.uiButton5.Text = "生成链接";
             this.uiButton5.TipsFont = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.uiButton5.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
+            this.uiButton5.Click += new System.EventHandler(this.uiButton5_Click);
             // 
             // label4
             // 
@@ -247,6 +248,7 @@
             this.uiRadioButton3.Padding = new System.Windows.Forms.Padding(22, 0, 0, 0);
             this.uiRadioButton3.Size = new System.Drawing.Size(85, 29);
             this.uiRadioButton3.Style = Sunny.UI.UIStyle.Custom;
+            this.uiRadioButton3.StyleCustomMode = true;
             this.uiRadioButton3.TabIndex = 6;
             this.uiRadioButton3.Text = "H模式";
             this.uiRadioButton3.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
@@ -264,6 +266,7 @@
             this.uiRadioButton2.Padding = new System.Windows.Forms.Padding(22, 0, 0, 0);
             this.uiRadioButton2.Size = new System.Drawing.Size(85, 29);
             this.uiRadioButton2.Style = Sunny.UI.UIStyle.Custom;
+            this.uiRadioButton2.StyleCustomMode = true;
             this.uiRadioButton2.TabIndex = 5;
             this.uiRadioButton2.Text = "J模式";
             this.uiRadioButton2.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
@@ -313,6 +316,7 @@
             this.uiRadioButton1.Padding = new System.Windows.Forms.Padding(22, 0, 0, 0);
             this.uiRadioButton1.Size = new System.Drawing.Size(85, 29);
             this.uiRadioButton1.Style = Sunny.UI.UIStyle.Custom;
+            this.uiRadioButton1.StyleCustomMode = true;
             this.uiRadioButton1.TabIndex = 2;
             this.uiRadioButton1.Text = "D模式";
             this.uiRadioButton1.ZoomScaleRect = new System.Drawing.Rectangle(0, 0, 0, 0);
@@ -375,6 +379,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form";
+            this.Opacity = 0.94D;
             this.Text = "Main";
             this.TopMost = true;
             this.TransparencyKey = System.Drawing.Color.Gainsboro;

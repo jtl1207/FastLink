@@ -65,7 +65,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FolderPicker.cs" />
+    <Compile Include="ElevatedDragDropManager.cs" />
+    <Compile Include="FolderBrowser.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -75,7 +75,7 @@
             this.uiPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uiPanel1.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiPanel1.Name = "uiPanel1";
-            this.uiPanel1.Radius = 30;
+            this.uiPanel1.Radius = 40;
             this.uiPanel1.RectColor = System.Drawing.Color.Transparent;
             this.uiPanel1.RectDisableColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(43)))), ((int)(((byte)(56)))));
             this.uiPanel1.Size = new System.Drawing.Size(535, 275);
@@ -99,6 +99,7 @@
             this.uiButton5.Name = "uiButton5";
             this.uiButton5.Size = new System.Drawing.Size(81, 29);
             this.uiButton5.Style = Sunny.UI.UIStyle.Custom;
+            this.uiButton5.StyleCustomMode = true;
             this.uiButton5.TabIndex = 13;
             this.uiButton5.Text = "生成链接";
             this.uiButton5.TipsFont = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -115,7 +116,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(289, 27);
             this.label4.TabIndex = 12;
-            this.label4.Text = "符号链接: 类似快捷方式,可移动";
+            this.label4.Text = "符号链接: 类似快捷方式,可远程";
             this.label4.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form_MouseDown);
             this.label4.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form_MouseMove);
             this.label4.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Form_MouseUp);
@@ -171,7 +172,6 @@
             // 
             // textBox2
             // 
-            this.textBox2.AllowDrop = true;
             this.textBox2.BackColor = System.Drawing.Color.White;
             this.textBox2.Font = new System.Drawing.Font("MiSans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.textBox2.Location = new System.Drawing.Point(105, 157);
@@ -289,7 +289,6 @@
             // 
             // textBox1
             // 
-            this.textBox1.AllowDrop = true;
             this.textBox1.BackColor = System.Drawing.Color.White;
             this.textBox1.Font = new System.Drawing.Font("MiSans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.textBox1.Location = new System.Drawing.Point(105, 105);
@@ -328,7 +327,7 @@
             this.uiButton2.BackColor = System.Drawing.Color.Transparent;
             this.uiButton2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.uiButton2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiButton2.Location = new System.Drawing.Point(465, 12);
+            this.uiButton2.Location = new System.Drawing.Point(462, 15);
             this.uiButton2.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiButton2.Name = "uiButton2";
             this.uiButton2.Radius = 20;
@@ -351,7 +350,7 @@
             this.uiButton1.FillPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.uiButton1.FillSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.uiButton1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiButton1.Location = new System.Drawing.Point(503, 12);
+            this.uiButton1.Location = new System.Drawing.Point(500, 15);
             this.uiButton1.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiButton1.Name = "uiButton1";
             this.uiButton1.Radius = 20;
@@ -369,7 +368,6 @@
             // 
             // Form
             // 
-            this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
